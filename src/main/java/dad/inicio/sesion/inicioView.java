@@ -2,15 +2,15 @@ package dad.inicio.sesion;
 
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
+
 
 public class inicioView extends BorderPane {
 	
@@ -23,45 +23,35 @@ public class inicioView extends BorderPane {
 		super();
 		
 		usuarioTf = new TextField();
+		usuarioTf.setPromptText("Usuario");
 		contraseñaPf = new PasswordField();
+		contraseñaPf.setPromptText("Contraseña");
 		
-		accederBt = new Button();
-		cancelarBt = new Button();
+		accederBt = new Button("Acceder");
+		accederBt.setDefaultButton(true);
+		cancelarBt = new Button("Cancelar");
 		
-		HBox botones = new HBox(5, accederBt, contraseñaPf);
+		HBox botones = new HBox(5, accederBt, cancelarBt);
+		botones.setAlignment(Pos.BASELINE_CENTER);
 		
 		GridPane centro = new GridPane();
+		centro.setHgap(15);
+		centro.setVgap(15);
+		centro.setAlignment(Pos.CENTER);
 		centro.addRow(0, new Label("Usuario: "),usuarioTf);
 		centro.addRow(1, new Label("Contraseña: "),contraseñaPf);
 
 		
-		ColumnConstraints [] cols = {
-				new ColumnConstraints(),	
-				new ColumnConstraints(),	
-			};
+		centro.add(botones, 0, 2);
+		GridPane.setColumnSpan(botones, 2);
 		
+		this.setCenter(centro);
 		
-		centro.getColumnConstraints().setAll(cols);
-		cols[0].setHalignment(HPos.LEFT);
-
-		cols[1].setHgrow(Priority.ALWAYS);
-		cols[1].setFillWidth(true);
-		
-		GridPane Boxito = new GridPane();
-		Boxito.setPadding(new Insets(5, 5, 0, 0));
-		Boxito.setHgap(10);
-		Boxito.setVgap(5);
-		
-		Boxito.addRow(0, botones);
-
-		
-		centro.add(Boxito, 1, 2);
-		
-		setCenter(centro);
 		
 		
 	    
 	}
+
 
 	public TextField getUsuarioTf() {
 		return usuarioTf;
