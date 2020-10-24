@@ -52,7 +52,7 @@ public class inicioView extends BorderPane {
 	}
 	
 	public void accesoConcedido() {
-		Alert alert = new Alert(AlertType.WARNING);
+		Alert alert = new Alert(AlertType.INFORMATION);
 		
 	    alert.setTitle("Iniciar Sesion");
 		alert.setHeaderText("Acceso Concedido");
@@ -62,15 +62,35 @@ public class inicioView extends BorderPane {
 	}
 	
 	public void accesoNoConcedido() {
-		Alert alert = new Alert(AlertType.WARNING);
+		Alert alert = new Alert(AlertType.ERROR);
+		
+	    alert.setTitle("Iniciar Sesion");
+		alert.setHeaderText("Acceso Concedido");
+		alert.setContentText("Usuario y/o Contraseña incorrectos");
+
+		alert.showAndWait();
+	}
+	
+	public void nombreNoCorrecto() {
+		Alert alert = new Alert(AlertType.ERROR);
 		
 	    alert.setTitle("Iniciar Sesion");
 		alert.setHeaderText("Acceso Denegado");
-		alert.setContentText("Usuario y/o Contraseña invalidos");
+		alert.setContentText("Usuario incorrecto");
 
 		alert.showAndWait();
 	}
 
+	public void ficheroInexistente() {
+		Alert alert = new Alert(AlertType.ERROR);
+		
+	    alert.setTitle("Iniciar Sesion");
+		alert.setHeaderText("Fichero Nulo");
+		alert.setContentText("El Fichero no ha sido encontrado");
+
+		alert.showAndWait();
+	}
+	
 	public TextField getUsuarioTf() {
 		return usuarioTf;
 	}

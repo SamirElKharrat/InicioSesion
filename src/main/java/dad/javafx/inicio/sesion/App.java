@@ -11,13 +11,12 @@ public class App extends Application {
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-	
 
 		verController = new inicioController();
 		
 		Scene escena = new Scene(verController.getView(), 350,250);
 		
-		primaryStage.setTitle("Ver");
+		primaryStage.setTitle("Inicio Sesion");
 		primaryStage.setScene(escena);
 		primaryStage.show();
 
