@@ -1,12 +1,12 @@
 package dad.inicio.sesion;
 
-import javafx.geometry.HPos;
-import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -48,27 +48,62 @@ public class inicioView extends BorderPane {
 		this.setCenter(centro);
 		
 		
-		
 	    
 	}
+	
+	public void accesoConcedido() {
+		Alert alert = new Alert(AlertType.WARNING);
+		
+	    alert.setTitle("Iniciar Sesion");
+		alert.setHeaderText("Acceso Concedido");
+		alert.setContentText("Usuario y Contraseña correctos");
 
+		alert.showAndWait();
+	}
+	
+	public void accesoNoConcedido() {
+		Alert alert = new Alert(AlertType.WARNING);
+		
+	    alert.setTitle("Iniciar Sesion");
+		alert.setHeaderText("Acceso Denegado");
+		alert.setContentText("Usuario y/o Contraseña invalidos");
+
+		alert.showAndWait();
+	}
 
 	public TextField getUsuarioTf() {
 		return usuarioTf;
+	}
+
+	public void setUsuarioTf(TextField usuarioTf) {
+		this.usuarioTf = usuarioTf;
 	}
 
 	public PasswordField getContraseñaPf() {
 		return contraseñaPf;
 	}
 
+	public void setContraseñaPf(PasswordField contraseñaPf) {
+		this.contraseñaPf = contraseñaPf;
+	}
+
 	public Button getAccederBt() {
 		return accederBt;
+	}
+
+	public void setAccederBt(Button accederBt) {
+		this.accederBt = accederBt;
 	}
 
 	public Button getCancelarBt() {
 		return cancelarBt;
 	}
-	
+
+	public void setCancelarBt(Button cancelarBt) {
+		this.cancelarBt = cancelarBt;
+	}
+
+
 	
 
 }
